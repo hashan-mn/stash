@@ -59,7 +59,7 @@ export class Persistence {
     /* ------------------------------------------------------------- load --- */
 
     /**
-     * Read history.json. Returns [] on any problem — a corrupt history is
+     * Read history.json. Returns [] on any problem. A corrupt history is
      * never worth breaking the extension over.
      */
     load() {

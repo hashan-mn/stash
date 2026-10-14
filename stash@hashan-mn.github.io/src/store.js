@@ -32,7 +32,7 @@ export const HistoryStore = GObject.registerClass({
         const keep = this._settings.get_boolean('keep-after-reboot');
         const loaded = this._persist.load();
 
-        /* Pinned entries survive even when persistence is off — the design
+        /* Pinned entries survive even when persistence is off; the design
          * promises "pinned ones stay forever". */
         this._items = keep ? loaded : loaded.filter(i => i.pinned);
 

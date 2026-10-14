@@ -13,7 +13,7 @@ Keyboard first, dark by default. Remembers text, links, commands and images.
 
 ## Why a shell extension and not an app
 
-Mutter 46 implements no clipboard-monitor protocol — no `wlr-data-control`,
+Mutter 46 implements no clipboard-monitor protocol: no `wlr-data-control`,
 no `ext-data-control`. You can verify this on your own machine:
 
 ```
@@ -44,7 +44,7 @@ gnome-extensions enable stash@hashan-mn.github.io
 GNOME Shell only scans for extensions at startup, and Wayland cannot restart
 the shell in place, so **log out and back in** after the first install.
 
-To develop without logging out, use the nested shell — a crash there closes a
+To develop without logging out, use the nested shell. A crash there closes a
 window instead of your session:
 
 ```bash
@@ -109,7 +109,7 @@ the tray.
 **History is stored unencrypted.** Entries live in
 `~/.local/share/stash/` as plain JSON plus PNG files, readable by
 any process running as you. That is inherent to clipboard managers, not
-specific to this one — but it means every password or token you copy is
+specific to this one, but it means every password or token you copy is
 written to disk.
 
 Two mitigations are on by default:
@@ -149,7 +149,7 @@ gsettings set org.gnome.shell enabled-extensions \
 ```
 
 "Ubuntu on Xorg" at the login screen gives a session where `Alt+F2` → `r`
-restarts the shell live. A crashing extension cannot stop you logging in —
+restarts the shell live. A crashing extension cannot stop you logging in:
 GNOME disables extensions that crash the shell during startup.
 
 ---
@@ -189,7 +189,7 @@ Built and verified against GNOME Shell 46 (Ubuntu 24.04) on Wayland.
 
 Shell extensions break across GNOME major versions. Moving to 47/48 means
 bumping `shell-version` in `metadata.json` and re-checking the APIs this
-leans on — `Meta.Selection`, `St.ScrollView.set_child`, `Main.pushModal`, and
+leans on: `Meta.Selection`, `St.ScrollView.set_child`, `Main.pushModal`, and
 `Clutter.VirtualInputDevice`. `St.Align` was already removed in 46, so expect
 similar churn.
 

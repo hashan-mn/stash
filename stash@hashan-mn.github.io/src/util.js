@@ -64,7 +64,7 @@ export function classifyText(text) {
     return 'text';
 }
 
-/** "2m ago", "3h ago", "4d ago" — matches the mock's meta line. */
+/** "2m ago", "3h ago", "4d ago", matching the mock's meta line. */
 export function relativeTime(timestampSeconds, nowSeconds = Math.floor(Date.now() / 1000)) {
     const delta = Math.max(0, nowSeconds - timestampSeconds);
     if (delta < 60)

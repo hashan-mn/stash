@@ -50,7 +50,7 @@ export class ClipboardMonitor {
         this._selection = null;
         this._ownerChangedId = 0;
 
-        /* Hashes we wrote ourselves — skipped once so pasting does not
+        /* Hashes we wrote ourselves, skipped once so pasting does not
          * re-record the entry and bubble it to the top. */
         this._selfWrites = new Set();
 
@@ -125,7 +125,7 @@ export class ClipboardMonitor {
         const imageMime = IMAGE_MIMES.find(m => mimetypes.includes(m));
 
         /* Screenshots and copied images offer an image type and no plain text.
-         * Rich-text copies offer both — those we want as text. */
+         * Rich-text copies offer both, and those we want as text. */
         if (imageMime && !hasText) {
             if (!this._settings.get_boolean('track-images')) {
                 Util.debug('skipped: image tracking disabled');

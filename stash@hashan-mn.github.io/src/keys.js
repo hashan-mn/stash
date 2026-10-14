@@ -2,7 +2,7 @@
  *
  * Super+V is already bound to `toggle-message-tray` on a stock Ubuntu 24.04
  * install (the default is ['<Super>v', '<Super>m']). Taking it means editing
- * that key, so the original value is saved and restored verbatim on disable —
+ * that key, so the original value is saved and restored verbatim on disable;
  * the tray keeps working via Super+M in the meantime.
  */
 
@@ -59,7 +59,7 @@ export class KeyManager {
      *
      * The original value goes into our own GSettings rather than an instance
      * field, so a shell crash (which skips disable()) cannot strand the user
-     * without their tray shortcut — the next enable/disable cycle restores it.
+     * without their tray shortcut. The next enable/disable cycle restores it.
      */
     _stealConflicts(accelerators) {
         const shellKeys = new Gio.Settings({schema_id: SHELL_KEYS_SCHEMA});

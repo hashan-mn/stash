@@ -1,4 +1,4 @@
-/* Stash — GNOME Shell extension entry point.
+/* Stash: GNOME Shell extension entry point.
  *
  * enable()/disable() must be perfectly symmetrical: the shell keeps running
  * between them, so anything created here has to be torn down there.

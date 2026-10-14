@@ -213,8 +213,8 @@ export default class ClipboardHistoryPrefs extends ExtensionPreferences {
             title: _('History is stored unencrypted'),
             subtitle: _(
                 'Entries are written to ~/.local/share/stash in ' +
-                'plain text. Anything you copy — including passwords and ' +
-                'tokens — can be read by any process running as you.'),
+                'plain text. Anything you copy, including passwords and ' +
+                'tokens, can be read by any process running as you.'),
             css_classes: ['warning'],
         }));
         page.add(warning);
