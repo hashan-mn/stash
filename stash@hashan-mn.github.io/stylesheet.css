@@ -1,0 +1,460 @@
+/* Stash — Modernist design system.
+ *
+ * St's CSS is a Clutter/Pango subset, not a browser engine:
+ *   - no flexbox/grid       -> layout comes from St.BoxLayout
+ *   - no custom properties  -> tokens are duplicated per theme class
+ *   - no text-transform     -> strings are uppercased in JS
+ *   - no line-clamp         -> height-capped box + Pango ellipsize
+ *
+ * Tokens (from the design):
+ *   dark   bg #201e1d  raise #2d2b2b  fg #f8f4f4  dim #9b9797
+ *          line rgba(248,244,244,.24) hover rgba(248,244,244,.07) accent #ff563c
+ *   light  bg #f3f2f2  raise #eae9e9  fg #201e1d  dim #605d5d
+ *          line rgba(32,30,29,.4)     hover rgba(32,30,29,.06)    accent #ec3013
+ */
+
+/* ---------------------------------------------------------------- panel --- */
+
+.ch-panel {
+    width: 360px;
+    height: 520px;
+    font-family: "Archivo", "Inter", "Cantarell", sans-serif;
+    border-radius: 0;
+    box-shadow: 0 12px 32px rgba(45, 43, 43, 0.32);
+}
+
+.ch-dark.ch-panel {
+    background-color: #201e1d;
+    color: #f8f4f4;
+    border: 2px solid rgba(248, 244, 244, 0.32);
+}
+
+.ch-light.ch-panel {
+    background-color: #f3f2f2;
+    color: #201e1d;
+    border: 2px solid #201e1d;
+}
+
+/* --------------------------------------------------------------- header --- */
+
+.ch-header {
+    padding: 14px 16px 12px 16px;
+    spacing: 12px;
+}
+
+.ch-dark .ch-header {
+    border-bottom: 2px solid rgba(248, 244, 244, 0.24);
+}
+
+.ch-light .ch-header {
+    border-bottom: 2px solid rgba(32, 30, 29, 0.4);
+}
+
+.ch-title {
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.ch-dark .ch-title { color: #f8f4f4; }
+.ch-light .ch-title { color: #201e1d; }
+
+.ch-count {
+    font-weight: 500;
+    font-size: 11px;
+}
+
+.ch-dark .ch-count { color: #9b9797; }
+.ch-light .ch-count { color: #605d5d; }
+
+.ch-chrome-button {
+    min-width: 26px;
+    height: 24px;
+    padding: 0 6px;
+    font-weight: 800;
+    font-size: 10px;
+    letter-spacing: 0.6px;
+    border-radius: 0;
+    background-color: transparent;
+}
+
+.ch-dark .ch-chrome-button {
+    border: 2px solid rgba(248, 244, 244, 0.24);
+    color: #9b9797;
+}
+
+.ch-light .ch-chrome-button {
+    border: 2px solid rgba(32, 30, 29, 0.4);
+    color: #605d5d;
+}
+
+.ch-dark .ch-chrome-button:hover { color: #f8f4f4; border-color: #ff563c; }
+.ch-light .ch-chrome-button:hover { color: #201e1d; border-color: #ec3013; }
+
+/* --------------------------------------------------------------- search --- */
+
+.ch-search {
+    height: 34px;
+    padding: 0 10px;
+    spacing: 9px;
+    border-radius: 0;
+}
+
+.ch-dark .ch-search { border: 2px solid rgba(248, 244, 244, 0.24); color: #f8f4f4; }
+.ch-light .ch-search { border: 2px solid rgba(32, 30, 29, 0.4); color: #201e1d; }
+
+.ch-dark .ch-search:focus-within { border-color: #ff563c; }
+.ch-light .ch-search:focus-within { border-color: #ec3013; }
+
+.ch-search-entry {
+    font-weight: 500;
+    font-size: 13.5px;
+    background-color: transparent;
+    border: none;
+    caret-color: #ff563c;
+}
+
+.ch-dark .ch-search-entry { color: #f8f4f4; }
+.ch-light .ch-search-entry { color: #201e1d; }
+
+.ch-dark .ch-search-entry StLabel.hint { color: #9b9797; }
+.ch-light .ch-search-entry StLabel.hint { color: #605d5d; }
+
+/* ----------------------------------------------------------------- tabs --- */
+
+.ch-tabs { }
+
+.ch-dark .ch-tabs { border: 2px solid rgba(248, 244, 244, 0.24); }
+.ch-light .ch-tabs { border: 2px solid rgba(32, 30, 29, 0.4); }
+
+.ch-tab {
+    padding: 6px 9px;
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 0.8px;
+    border-radius: 0;
+    background-color: transparent;
+}
+
+.ch-dark .ch-tab { color: #9b9797; }
+.ch-light .ch-tab { color: #605d5d; }
+
+.ch-dark .ch-tab:hover { background-color: rgba(248, 244, 244, 0.07); }
+.ch-light .ch-tab:hover { background-color: rgba(32, 30, 29, 0.06); }
+
+.ch-dark .ch-tab-divider { border-left: 2px solid rgba(248, 244, 244, 0.24); }
+.ch-light .ch-tab-divider { border-left: 2px solid rgba(32, 30, 29, 0.4); }
+
+.ch-dark .ch-tab.ch-tab-active {
+    background-color: #ff563c;
+    color: #201e1d;
+}
+
+.ch-light .ch-tab.ch-tab-active {
+    background-color: #ec3013;
+    color: #f3f2f2;
+}
+
+.ch-tab-count {
+    font-weight: 600;
+    font-size: 10px;
+}
+
+/* ----------------------------------------------------------------- list --- */
+
+.ch-list {
+    padding: 0;
+}
+
+.ch-row {
+    padding: 11px 14px 11px 14px;
+    border-left: 2px solid transparent;
+}
+
+.ch-dark .ch-row { border-bottom: 1px solid rgba(248, 244, 244, 0.1); }
+.ch-light .ch-row { border-bottom: 1px solid rgba(32, 30, 29, 0.14); }
+
+.ch-dark .ch-row.ch-row-hover { background-color: rgba(248, 244, 244, 0.07); }
+.ch-light .ch-row.ch-row-hover { background-color: rgba(32, 30, 29, 0.06); }
+
+.ch-dark .ch-row.ch-row-selected {
+    background-color: rgba(255, 86, 60, 0.12);
+    border-left: 2px solid #ff563c;
+}
+
+.ch-light .ch-row.ch-row-selected {
+    background-color: rgba(236, 48, 19, 0.09);
+    border-left: 2px solid #ec3013;
+}
+
+.ch-row-body { spacing: 12px; }
+
+/* 360 panel - 28 padding - 32 mark - 24 spacing - 104 rail = 172, minus 8px
+ * of slack for the panel border and the row's 2px selection border, which
+ * would otherwise squeeze the rail and clip its last action icon. */
+.ch-row-text {
+    spacing: 4px;
+    width: 164px;
+}
+
+/* Type mark: TXT / URL / CMD */
+.ch-mark {
+    width: 32px;
+    height: 20px;
+    margin-top: 2px;
+    font-weight: 800;
+    font-size: 8.5px;
+    letter-spacing: 0.5px;
+    border-radius: 0;
+}
+
+.ch-dark .ch-mark { border: 2px solid rgba(248, 244, 244, 0.24); color: #9b9797; }
+.ch-light .ch-mark { border: 2px solid rgba(32, 30, 29, 0.4); color: #605d5d; }
+
+/* Image thumbnail slot */
+.ch-thumb {
+    width: 52px;
+    height: 40px;
+    border-radius: 0;
+}
+
+.ch-dark .ch-thumb { border: 2px solid rgba(248, 244, 244, 0.24); color: #9b9797; }
+.ch-light .ch-thumb { border: 2px solid rgba(32, 30, 29, 0.4); color: #605d5d; }
+
+.ch-thumb-label {
+    font-weight: 800;
+    font-size: 8px;
+    letter-spacing: 0.5px;
+}
+
+.ch-preview {
+    font-size: 13px;
+    width: 164px;
+}
+
+.ch-dark .ch-preview { color: #f8f4f4; }
+.ch-light .ch-preview { color: #201e1d; }
+
+.ch-preview-mono {
+    font-weight: 500;
+}
+
+.ch-meta {
+    spacing: 8px;
+    font-weight: 600;
+    font-size: 10.5px;
+    letter-spacing: 0.7px;
+}
+
+.ch-dark .ch-meta { color: #9b9797; }
+.ch-light .ch-meta { color: #605d5d; }
+
+.ch-pin-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 0;
+}
+
+.ch-dark .ch-pin-dot { background-color: #ff563c; }
+.ch-light .ch-pin-dot { background-color: #ec3013; }
+
+/* Right rail: shortcut hint or hover actions */
+.ch-row-actions { spacing: 2px; }
+
+.ch-rail {
+    width: 104px;
+    spacing: 6px;
+    min-height: 24px;
+}
+
+.ch-key-hint {
+    padding: 2px 5px;
+    font-weight: 700;
+    font-size: 9.5px;
+    letter-spacing: 0.5px;
+    border-radius: 0;
+}
+
+.ch-dark .ch-key-hint { border: 1px solid rgba(248, 244, 244, 0.24); color: #9b9797; }
+.ch-light .ch-key-hint { border: 1px solid rgba(32, 30, 29, 0.4); color: #605d5d; }
+
+.ch-icon-button {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+}
+
+.ch-dark .ch-icon-button { color: #9b9797; }
+.ch-light .ch-icon-button { color: #605d5d; }
+
+.ch-dark .ch-icon-button:hover { color: #f8f4f4; }
+.ch-light .ch-icon-button:hover { color: #201e1d; }
+
+.ch-dark .ch-icon-button.ch-pinned { color: #ff563c; }
+.ch-light .ch-icon-button.ch-pinned { color: #ec3013; }
+
+/* Expanded detail */
+.ch-detail {
+    margin-top: 10px;
+    width: 296px;
+    padding: 10px 12px;
+    font-size: 12px;
+}
+
+.ch-dark .ch-detail {
+    background-color: #2d2b2b;
+    border-left: 2px solid #ff563c;
+    color: #f8f4f4;
+}
+
+.ch-light .ch-detail {
+    background-color: #eae9e9;
+    border-left: 2px solid #ec3013;
+    color: #201e1d;
+}
+
+/* ---------------------------------------------------------------- empty --- */
+
+.ch-empty {
+    padding: 48px 20px 52px 20px;
+    spacing: 14px;
+}
+
+.ch-empty-mark {
+    width: 88px;
+    height: 56px;
+}
+
+.ch-dark .ch-empty-mark { border: 2px dashed rgba(248, 244, 244, 0.24); }
+.ch-light .ch-empty-mark { border: 2px dashed rgba(32, 30, 29, 0.4); }
+
+.ch-empty-title {
+    font-weight: 800;
+    font-size: 15px;
+}
+
+.ch-dark .ch-empty-title { color: #f8f4f4; }
+.ch-light .ch-empty-title { color: #201e1d; }
+
+.ch-empty-sub {
+    font-size: 12.5px;
+    max-width: 250px;
+}
+
+.ch-dark .ch-empty-sub { color: #9b9797; }
+.ch-light .ch-empty-sub { color: #605d5d; }
+
+.ch-empty-button {
+    padding: 7px 11px;
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 0.8px;
+    border-radius: 0;
+    background-color: transparent;
+}
+
+.ch-dark .ch-empty-button { border: 2px solid #ff563c; color: #ff563c; }
+.ch-light .ch-empty-button { border: 2px solid #ec3013; color: #ec3013; }
+
+/* --------------------------------------------------------------- footer --- */
+
+.ch-footer {
+    padding: 9px 16px;
+    font-weight: 600;
+    font-size: 10.5px;
+    letter-spacing: 0.7px;
+}
+
+.ch-dark .ch-footer {
+    border-top: 2px solid rgba(248, 244, 244, 0.24);
+    color: #9b9797;
+}
+
+.ch-light .ch-footer {
+    border-top: 2px solid rgba(32, 30, 29, 0.4);
+    color: #605d5d;
+}
+
+.ch-footer-button {
+    padding: 0;
+    min-width: 74px;
+    border: none;
+    border-radius: 0;
+    font-weight: 700;
+    font-size: 10.5px;
+    letter-spacing: 0.7px;
+    background-color: transparent;
+}
+
+.ch-dark .ch-footer-button { color: #9b9797; }
+.ch-light .ch-footer-button { color: #605d5d; }
+
+.ch-dark .ch-footer-button:hover { color: #ff563c; }
+.ch-light .ch-footer-button:hover { color: #ec3013; }
+
+/* ------------------------------------------------------- menus + toast --- */
+
+.ch-popup {
+    padding: 4px 0;
+    border-radius: 0;
+    box-shadow: 0 12px 32px rgba(45, 43, 43, 0.32);
+}
+
+.ch-dark .ch-popup {
+    background-color: #2d2b2b;
+    border: 2px solid rgba(248, 244, 244, 0.32);
+}
+
+.ch-light .ch-popup {
+    background-color: #eae9e9;
+    border: 2px solid #201e1d;
+}
+
+.ch-menu-item {
+    padding: 7px 11px;
+    font-weight: 500;
+    font-size: 12.5px;
+    border-radius: 0;
+    border: none;
+    background-color: transparent;
+}
+
+.ch-dark .ch-menu-item { color: #f8f4f4; }
+.ch-light .ch-menu-item { color: #201e1d; }
+
+.ch-dark .ch-menu-item:hover { background-color: rgba(248, 244, 244, 0.07); }
+.ch-light .ch-menu-item:hover { background-color: rgba(32, 30, 29, 0.06); }
+
+.ch-dark .ch-menu-item.ch-destructive { color: #ff563c; }
+.ch-light .ch-menu-item.ch-destructive { color: #ec3013; }
+
+.ch-menu-key {
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+}
+
+.ch-dark .ch-menu-key { color: #9b9797; }
+.ch-light .ch-menu-key { color: #605d5d; }
+
+.ch-menu-value {
+    font-weight: 700;
+    font-size: 11px;
+}
+
+.ch-dark .ch-menu-value { color: #9b9797; }
+.ch-light .ch-menu-value { color: #605d5d; }
+
+.ch-toast {
+    padding: 9px 12px;
+    font-weight: 800;
+    font-size: 11.5px;
+    letter-spacing: 0.7px;
+    border-radius: 0;
+}
+
+.ch-dark .ch-toast { background-color: #ff563c; color: #201e1d; }
+.ch-light .ch-toast { background-color: #ec3013; color: #f3f2f2; }

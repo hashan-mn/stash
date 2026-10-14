@@ -1,0 +1,12 @@
+{
+  "uuid": "stash@hashan-mn.github.io",
+  "name": "Stash",
+  "description": "A Super+V clipboard history panel. Keyboard first, dark by default, remembers text, links and images.",
+  "shell-version": [
+    "46"
+  ],
+  "settings-schema": "org.gnome.shell.extensions.stash",
+  "gettext-domain": "stash",
+  "version": 1,
+  "url": "https://github.com/hashan-mn/stash"
+}

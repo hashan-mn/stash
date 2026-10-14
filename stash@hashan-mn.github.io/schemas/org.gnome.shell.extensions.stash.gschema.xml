@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="stash">
+  <schema id="org.gnome.shell.extensions.stash"
+          path="/org/gnome/shell/extensions/stash/">
+
+    <key name="toggle-panel" type="as">
+      <default><![CDATA[['<Super>v']]]></default>
+      <summary>Open the clipboard panel</summary>
+      <description>Keyboard shortcut that shows or hides the history panel.</description>
+    </key>
+
+    <key name="history-size" type="i">
+      <range min="10" max="1000"/>
+      <default>200</default>
+      <summary>History size</summary>
+      <description>How many unpinned entries to keep. Pinned entries are never evicted.</description>
+    </key>
+
+    <key name="keep-after-reboot" type="b">
+      <default>true</default>
+      <summary>Keep history after reboot</summary>
+      <description>Write history to disk so it survives logout. Pinned entries are always kept.</description>
+    </key>
+
+    <key name="track-images" type="b">
+      <default>true</default>
+      <summary>Track images</summary>
+      <description>Record copied images and screenshots with a thumbnail preview.</description>
+    </key>
+
+    <key name="ignore-password-managers" type="b">
+      <default>true</default>
+      <summary>Ignore password managers</summary>
+      <description>Skip clipboard content marked as sensitive by password managers.</description>
+    </key>
+
+    <key name="app-blocklist" type="as">
+      <default>['org.keepassxc.KeePassXC','org.gnome.World.Secrets','Bitwarden','1Password','KeePassXC']</default>
+      <summary>Ignored applications</summary>
+      <description>Window class names whose clipboard activity is never recorded.</description>
+    </key>
+
+    <key name="theme" type="s">
+      <choices>
+        <choice value="dark"/>
+        <choice value="light"/>
+        <choice value="system"/>
+      </choices>
+      <default>'dark'</default>
+      <summary>Panel theme</summary>
+      <description>Colour scheme for the panel.</description>
+    </key>
+
+    <key name="max-image-bytes" type="i">
+      <range min="65536" max="67108864"/>
+      <default>8388608</default>
+      <summary>Maximum image size</summary>
+      <description>Images larger than this are not stored.</description>
+    </key>
+
+    <key name="tray-binding-backup" type="as">
+      <default>[]</default>
+      <summary>Saved message-tray shortcut</summary>
+      <description>
+        The original value of org.gnome.shell.keybindings toggle-message-tray,
+        saved before this extension took Super+V. Persisted so the binding can
+        still be restored if the shell exits without calling disable().
+        Empty means nothing is currently stolen.
+      </description>
+    </key>
+
+    <key name="debug-logging" type="b">
+      <default>false</default>
+      <summary>Verbose logging</summary>
+      <description>Log clipboard events to the journal for troubleshooting.</description>
+    </key>
+
+  </schema>
+</schemalist>
